@@ -33,6 +33,16 @@ class Order(models.Model):
     # SET_NULL: 设置为空，即如果有外键指向该对象，则将该外键设置为null
     customer = models.ForeignKey(Customer,on_delete=models.PROTECT)
 
+    # 订单购买的药品，和Medicine表是多对多的关系
+    # through参数指定中间表的名称
+    medicines = models.ManyToManyField(Medicine, through='OrderMedicine')
+
+class OrderMedicine(models.Model):
+    order = models.ForeignKey(Order, on_delete=models.PROTECT)
+    medicine = models.ForeignKey(Medicine, on_delete=models.PROTECT)
+
+    # 订单中药品的数量
+    amount = models.PositiveIntegerField()
 
 from django.contrib import admin
 admin.site.register(Customer)
