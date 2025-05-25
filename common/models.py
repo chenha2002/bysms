@@ -10,6 +10,14 @@ class Customer(models.Model):
     # 地址
     address = models.CharField(max_length=200)
 
+class Medicine(models.Model):
+    # 药品名
+    name = models.CharField(max_length=200)
+    # 药品编号
+    sn = models.CharField(max_length=200)
+    # 描述
+    desc = models.CharField(max_length=200)
+
 
 
 
