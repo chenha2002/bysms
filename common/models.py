@@ -28,6 +28,9 @@ class Order(models.Model):
     create_date = models.DateTimeField(default=datetime.datetime.now)
 
     # 客户
+    # Protect: 保护性删除，即如果有外键指向该对象，则不允许删除
+    # CASCADE: 级联删除，即如果有外键指向该对象，则同时删除该对象
+    # SET_NULL: 设置为空，即如果有外键指向该对象，则将该外键设置为null
     customer = models.ForeignKey(Customer,on_delete=models.PROTECT)
 
 
