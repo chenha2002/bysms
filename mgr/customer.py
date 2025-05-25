@@ -91,6 +91,8 @@ def delete_customer(request):
 
     customerid = request.params['id']
 
+
+
     try:
         # 根据 id 从数据库中找到相应的客户记录
         customer = Customer.objects.get(id=customerid)
