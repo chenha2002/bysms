@@ -1,5 +1,6 @@
 from django.db import models
 
+import datetime
 class Customer(models.Model):
     # 客户名称
     name = models.CharField(max_length=200)
@@ -19,6 +20,15 @@ class Medicine(models.Model):
     desc = models.CharField(max_length=200)
 
 
+class Order(models.Model):
+    # 订单名
+    name = models.CharField(max_length=200,null=True,blank=True)
+
+    # 创建日期
+    create_date = models.DateTimeField(default=datetime.datetime.now)
+
+    # 客户
+    customer = models.ForeignKey(Customer,on_delete=models.PROTECT)
 
 
 from django.contrib import admin
