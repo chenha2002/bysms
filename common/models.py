@@ -10,8 +10,7 @@ class Customer(models.Model):
     # 地址
     address = models.CharField(max_length=200)
 
-    # qq
-    qq  = models.CharField(max_length=30,null=True,blank=True)
+
 
 
 from django.contrib import admin
