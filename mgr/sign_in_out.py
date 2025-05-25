@@ -18,8 +18,10 @@ def signin( request):
                 login(request, user)
                 # 在session中存入用户类型
                 request.session['usertype'] = 'mgr'
+                session_id = request.session.session_key
+                # 返回登录成功的结果，并将 session_id 存入返回结果中
+                return JsonResponse({'ret': 0,'session_id': session_id})
 
-                return JsonResponse({'ret': 0})
             else:
                 return JsonResponse({'ret': 1, 'msg': '请使用管理员账户登录'})
         else:

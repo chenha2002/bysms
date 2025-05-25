@@ -46,3 +46,5 @@ class OrderMedicine(models.Model):
 
 from django.contrib import admin
 admin.site.register(Customer)
+admin.site.register(Medicine)
+admin.site.register(Order)
